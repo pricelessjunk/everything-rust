@@ -9,3 +9,11 @@ cargo new <projectname>
 ```
 cargo run --bin <projectname>
 ```
+
+# Create new lib
+
+```
+cargo new <name> --lib
+```
+
+- Start point for libraries are `src/lib.rs` instead of `src/main.rs`
