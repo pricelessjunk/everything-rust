@@ -18,7 +18,7 @@ mod front_of_house {
         fn serve_order() {}
         fn take_payment() {}
     }
-    
+
     fn outer_func() {}
 }
 
@@ -35,5 +35,5 @@ fn main() {
     // Relative path
     front_of_house::hosting::add_to_waitlist();
     // Using use
-    hos::add_to_wishlist();
+    host::add_to_waitlist();
 }
