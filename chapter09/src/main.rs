@@ -1,10 +1,10 @@
 use std::fs::File;
-use std::io::ErrorKind;
+use std::io::{ErrorKind, Read};
 
 /**
  * The main in general has a return type of (). This means, using ? on main will cause an error.
  * To fix this problem, the return type of main needs to be changed to
- * 
+ *
  * fn main() -> Result<(), <dyn Error>> {
  *      Ok(());
  * }
@@ -18,7 +18,7 @@ fn main() {
     let the_file = match file_result {
         Ok(file) => file,
         Err(error) => match error.kind() {
-            ErrorKind::NotFound => panic!("Problem opening file {:?}", error), 
+            ErrorKind::NotFound => panic!("Problem opening file {:?}", error),
             other_error => panic!("Problem opening file {:?}", other_error),
         }
     };
@@ -32,7 +32,7 @@ fn manual_panic() {
 fn unwrap_method() {
     let another_file = File::open("something.txt").unwrap();
 }
-    
+
 // expect same as unwrap but lets you choose an error message
 fn expect_method(){
     let third_file = File::open("lla").expect("Custom error message");

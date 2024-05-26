@@ -50,7 +50,9 @@ fn combined_func_gen<T: Summary + Display>(item: &T){}
 fn where_clause<T, U>(t: &T, u: &U) -> i32
 where T: Display + Clone,
       U: Clone + Debug,
-{}
+{
+    2
+}
 
 // Traits as return types
 fn return_types(flag: bool) -> impl Summary {
@@ -69,17 +71,19 @@ fn return_types(flag: bool) -> impl Summary {
 }
 
 // Blanket implementation
-impl<T: Display> ToString for T {
-    // --snip
-}
+// impl<T: Display> ToString for T {
+//     fn to_string(&self) -> String {
+//         todo!()
+//     }
+// }
 
 // Generics with generic lifetimes
 fn longest_with_announcement<'a, T>(
-    x: &'a str, 
+    x: &'a str,
     y: &'a str,
     ann: T,
-) -> &'a str 
-where 
+) -> &'a str
+where
     T: Display,
 {
     println!("Announcement {}", ann);
