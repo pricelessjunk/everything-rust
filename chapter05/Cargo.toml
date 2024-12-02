@@ -2,6 +2,8 @@
 name = "chapter05"
 version = "0.1.0"
 edition = "2021"
+description = "Using Structs to Structure Related Data"
+# https://doc.rust-lang.org/book/ch05-00-structs.html
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

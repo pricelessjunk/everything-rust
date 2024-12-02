@@ -2,6 +2,8 @@
 name = "chapter09"
 version = "0.1.0"
 edition = "2021"
+description = "Error Handling"
+# https://doc.rust-lang.org/book/ch09-00-error-handling.html
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

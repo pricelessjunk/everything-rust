@@ -2,6 +2,8 @@
 name = "chapter06"
 version = "0.1.0"
 edition = "2021"
+description = "Enums and Pattern Matching"
+# https://doc.rust-lang.org/book/ch06-00-enums.html
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
