@@ -1,3 +1,4 @@
+use std::error::Error;
 use std::fs::File;
 use std::io::{ErrorKind, Read};
 
@@ -39,12 +40,12 @@ fn expect_method(){
 }
 
 /** The ? at the end of the result behaves as match. If it is error, it propagates to the calling method,
- * else returns the value.
+ * else returns the value. The return type also changed.
  */
-fn read_from_file(){
+fn read_from_file() -> Result<String, Box<dyn Error>>{
     let mut username_file = File::open("hello.txt")?;
     let mut username = String::new();
     username_file.read_to_string(&mut username)?;
-    Ok(username);
+    Ok(username)        // semicolon not added to return the value
 }
 

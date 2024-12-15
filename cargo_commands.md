@@ -1,6 +1,8 @@
 # Create new Cargo project/sub-project
 
 ```
+mkdir <projectname>
+cargo init <projectname>
 cargo new <projectname>
 ```
 
@@ -8,6 +10,12 @@ cargo new <projectname>
 
 ```
 cargo run --bin <projectname>
+```
+
+# Test sub-project lib
+
+```
+cargo test --lib chapter12
 ```
 
 # Create new lib
