@@ -1,5 +1,13 @@
 /**
  * cargo run --bin chapter12 -- arg1 arg2
+ * 
+ * Eg:
+ * 
+ * > cargo run --bin chapter12 -- chapter12/src/poem.txt to
+ * ["Are you nobody, too?", "How dreary to be somebody!"]
+ * 
+ * > IGNORE_CASE=true cargo run --bin chapter12 -- chapter12/src/poem.txt to
+ * ["Are you nobody, too?", "How dreary to be somebody!", "To tell your name the livelong day", "To an admiring bog!"]
  */
 
 use std::env;
@@ -12,29 +20,28 @@ fn main() {
     // Capture command line arguments
     // Use std::env::args_os to accept invalid Unicode
     let args: Vec<String> = env::args().collect();
-    // dbg!(args);
-
     let path = &args[1];
-    print!("{path}");
+    println!("{path}");
 
     read_file(path);
 
-    // Calling the same thing in lib
-    let query = args[1].clone();  // to create a copy, but this is a bit inefficient
-    let file_path = args[2].clone();
-    let lib_config = LibConfig {query, file_path};
-    // if let says if there is an error, then only run the block of code
+    // Calling the search from lib
+    let file_path = args[1].clone();
+    let query = args[2].clone();  // to create a copy, but this is a bit inefficient
+    let ignore_case = env::var("IGNORE_CASE").is_ok();
+
+    let lib_config = LibConfig {query, file_path, ignore_case};
     if let Err(e) = chapter12::run(lib_config) {
-            print!("Application error: {e}");
+            eprintln!("Application error: {e}");
             exit(1);
     }
 }
 
-
 fn read_file(filename: &String){
+    println!("---- In read_file ----");
     let contents = fs::read_to_string(filename).expect("Should have read the value, but error");
-
-    print!("{contents}");
+    println!("{contents}");
+    println!("---- DONE ----");
 }
 
 /*
