@@ -53,6 +53,11 @@ fn closure_default() -> u8 {
     0
 }
 
+/// Add one
+/// 
+/// returns the sum
+/// 
+/// Panics here
 fn add_one_v1(x: u32) -> u32 {
     x + 1
 }
