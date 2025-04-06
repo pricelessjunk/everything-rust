@@ -1,7 +1,7 @@
 [package]
 name = "chapter07"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 description = "Managing Growing Projects with Package, Crates, and Modules"
 # https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html
 
