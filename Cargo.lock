@@ -51,5 +51,9 @@ name = "chapter15"
 version = "0.1.0"
 
 [[package]]
+name = "chapter16"
+version = "0.1.0"
+
+[[package]]
 name = "try_out"
 version = "0.1.0"
