@@ -28,7 +28,6 @@ fn main() {
     let plant = Asparagus {};
     println!("{:?}", plant);
 
-
     /* Using the resturant system  */
     // absolute path
     crate::front_of_house::hosting::add_to_waitlist();

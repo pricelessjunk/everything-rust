@@ -2,7 +2,7 @@ use std::{io, result};
 
 //https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html
 fn main() {
-    let x = 5;  // immutable i32
+    let x = 5; // immutable i32
     let mut y = 4; //changing to mut
 
     const THREE: u32 = 3;
@@ -10,7 +10,7 @@ fn main() {
     /*
     Variable Shadowing
      */
-    let x1=5;
+    let x1 = 5;
     let x1 = x1 + 1;
     {
         let x1 = x1 * 2;
@@ -35,7 +35,7 @@ fn main() {
     let byte: u8 = b'A';
 
     let x = 2.0; //f64
-    let y : f32 = 2.0; //f32
+    let y: f32 = 2.0; //f32
 
     let t = true;
     let f = false;
@@ -45,13 +45,13 @@ fn main() {
     /*
     Compound types
      */
-    let tup: (i32, f64,u8) = (500, 6.4, 1);
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
     let (a, b, c) = tup;
 
     /*
     Arrays
      */
-    let arr: [i32; 5] = [2,3,4,5,6];
+    let arr: [i32; 5] = [2, 3, 4, 5, 6];
     let months: [&str; 2] = ["Jan", "Feb"];
     let threeArr = [3; 5]; // [3, 3, 3, 3, 3]
 
@@ -61,8 +61,7 @@ fn main() {
     io::stdin()
         .read_line(&mut index)
         .expect("Error reading line");
-    let index: usize = index.trim().parse()
-        .expect("Index not a number");
+    let index: usize = index.trim().parse().expect("Index not a number");
     let element = arr[index]; // Throws error at runtime if size greater
 
     /* Functions */
@@ -78,7 +77,7 @@ fn main() {
         println!("false");
     }
 
-    let absNumber = if number < 0 {number * -1} else {number};
+    let absNumber = if number < 0 { number * -1 } else { number };
 
     /* loop  */
     /*loop {
@@ -88,9 +87,9 @@ fn main() {
     // Returns a value on break
     let mut counter = 0;
     let result = loop {
-        counter+=1;
-        if counter==10 {
-            break counter*2;
+        counter += 1;
+        if counter == 10 {
+            break counter * 2;
         }
     };
 
@@ -105,7 +104,7 @@ fn main() {
     }
 }
 
-fn another_function(x: i32){
+fn another_function(x: i32) {
     println!("Another function: {x}");
 }
 

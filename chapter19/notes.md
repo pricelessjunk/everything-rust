@@ -1,5 +1,0 @@
-# match use cases
-
-```rust
-
-```

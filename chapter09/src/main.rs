@@ -21,7 +21,7 @@ fn main() {
         Err(error) => match error.kind() {
             ErrorKind::NotFound => panic!("Problem opening file {:?}", error),
             other_error => panic!("Problem opening file {:?}", other_error),
-        }
+        },
     };
 }
 
@@ -35,17 +35,16 @@ fn unwrap_method() {
 }
 
 // expect same as unwrap but lets you choose an error message
-fn expect_method(){
+fn expect_method() {
     let third_file = File::open("lla").expect("Custom error message");
 }
 
 /** The ? at the end of the result behaves as match. If it is error, it propagates to the calling method,
  * else returns the value. The return type also changed.
  */
-fn read_from_file() -> Result<String, Box<dyn Error>>{
+fn read_from_file() -> Result<String, Box<dyn Error>> {
     let mut username_file = File::open("hello.txt")?;
     let mut username = String::new();
     username_file.read_to_string(&mut username)?;
-    Ok(username)        // semicolon not added to return the value
+    Ok(username) // semicolon not added to return the value
 }
-

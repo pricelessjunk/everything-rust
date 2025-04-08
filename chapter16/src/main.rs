@@ -1,4 +1,8 @@
-use std::{sync::{mpsc, Arc, Mutex}, thread, time::Duration};
+use std::{
+    sync::{Arc, Mutex, mpsc},
+    thread,
+    time::Duration,
+};
 
 fn main() {
     println!("Hello, world!");
@@ -32,7 +36,7 @@ fn multiple_producer_single_consumer() {
             String::from("14"),
         ];
 
-        for val in vals{
+        for val in vals {
             tx.send(val).unwrap();
             thread::sleep(Duration::from_millis(300));
         }
@@ -46,7 +50,7 @@ fn multiple_producer_single_consumer() {
             String::from("24"),
         ];
 
-        for val in vals{
+        for val in vals {
             tx1.send(val).unwrap();
             thread::sleep(Duration::from_millis(300));
         }
@@ -69,14 +73,13 @@ fn rc_and_mutexes() {
             let mut num = counter.lock().unwrap();
             *num += 1;
             println!("After increment {}", *num);
-        });  
+        });
         handles.push(handle);
     }
 
     for h in handles {
         h.join().unwrap();
     }
-    
+
     println!("Result: {}", *counter.lock().unwrap());
 }
-

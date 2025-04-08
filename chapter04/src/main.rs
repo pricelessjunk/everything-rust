@@ -11,7 +11,6 @@ fn main() {
     // let r_mut = &mut s; Combining is also erroraneous
     // println!("{r_immut}, {r_immut_2}, {r_mut}");
 
-
     /* String slices */
     let ss = "hello world";
     let str_len = ss.len();
@@ -25,17 +24,16 @@ fn main() {
     println!("{slice}");
 
     /* array slices  */
-    let a = [1,2,3,4,5];
+    let a = [1, 2, 3, 4, 5];
     let a_slice = &a[2..4];
     assert_eq!(a_slice, [3, 4])
-
 }
 
 // The following throws an error 'expected named lifetime parameter'.
 // This is because s is dropped when it reaches the end of scope
 // Expects the scope to be static
-fn dangling_reference() -> /*&*/String {
-    let s=String::from("abc");
+fn dangling_reference() -> String {
+    let s = String::from("abc");
     return /*&*/s;
 }
 

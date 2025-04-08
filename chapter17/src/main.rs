@@ -8,7 +8,7 @@ use scraper::{Html, Selector};
 async fn page_title(url: &str) -> Option<String> {
     // Send a GET request
     let response = reqwest::get(url).await.ok()?;
-    
+
     // Extract response text
     let response_text = response.text().await.ok()?;
 

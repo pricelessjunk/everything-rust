@@ -25,7 +25,7 @@ impl LibConfig {
 
         let file_path = args[1].clone();
         let query = args[2].clone();
-        
+
         Ok(LibConfig {
             query,
             file_path,

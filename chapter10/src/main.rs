@@ -1,14 +1,11 @@
 mod traits;
 
 fn main() {
-    let list = vec![1,2,3,4];
+    let list = vec![1, 2, 3, 4];
     let num = largest_with_generics(&list);
     println!("{num}");
 
-    let p = Point {
-        x: 1,
-        y: 2,
-    };
+    let p = Point { x: 1, y: 2 };
 
     println!("Point.x is {}", p.x());
 
@@ -17,7 +14,7 @@ fn main() {
 }
 
 // In functions
-fn largest_with_generics<T: std::cmp::PartialOrd>(list: &[T]) -> &T{
+fn largest_with_generics<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
     let mut largest = &list[0];
 
     for l in list {
@@ -42,7 +39,3 @@ impl<T> Point<T> {
         &self.x
     }
 }
-
-
-
-

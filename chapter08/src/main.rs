@@ -9,8 +9,8 @@ fn main() {
     /* Vectors  */
     // Creation
     let mut v: Vec<i32> = Vec::new();
-    let v2 = vec![1,2,3];       // At the end of the scope this contents of the elements will also
-                                // drop
+    let v2 = vec![1, 2, 3]; // At the end of the scope this contents of the elements will also
+    // drop
     v.push(4);
     v.push(5);
     v.push(6);
@@ -20,19 +20,19 @@ fn main() {
 
     // Access with macros
     let third: Option<&i32> = v.get(2);
-    match third{
+    match third {
         Some(i) => println!("{}", i),
         None => println!("There is no third"),
     }
 
     // Iterating over vectors
-    let v4 = vec![100,32,57];
+    let v4 = vec![100, 32, 57];
     for i in v4 {
         println!("{i}");
     }
-    
+
     // Iterating over mutable vectors
-    let mut v5 = vec![1,2,3];
+    let mut v5 = vec![1, 2, 3];
     for i in &mut v5 {
         println!("{i}");
         *i += 2 // To change the value of a mutable reference, * is needed
@@ -45,11 +45,11 @@ fn main() {
     // Strings editing
     let mut s1 = String::from("foo");
     let s2 = "bar";
-    s1.push_str(s2);    // s2 is a string slice
+    s1.push_str(s2); // s2 is a string slice
 
     let mut s3 = String::from("lo");
-    s3.push('l');     // Single character pushing
-    
+    s3.push('l'); // Single character pushing
+
     let s4 = String::from("Hello, ");
     let s5 = String::from("World");
     // The + here uses the add method
@@ -68,25 +68,24 @@ fn main() {
     for s in hindiStr.bytes() {
         println!("{s}");
     }
-   
+
     // Slicing strings
     println!("{}", &hindiStr[0..6]); // The letters here are 3 bytes each
-    
+
     // Hashmaps
     let mut map = HashMap::new();
     map.insert(String::from("ten"), 10);
     map.insert(String::from("fifty"), 50); // reinserting replaces an older value
-    map.entry(String::from("twenty")).or_insert(20);  // inserting if not present                                           
+    map.entry(String::from("twenty")).or_insert(20); // inserting if not present                                           
 
     // copied is used to convert the Option<V> to Option<i32>. unwrap_or returns 0 if not found
     println!("{}", map.get(&String::from("ten")).copied().unwrap_or(0));
 
     // Looping over hashmap
-    for (key,value) in map {
+    for (key, value) in map {
         println!("{key},{value}");
     }
 
     let text = "heelo worls dll ed";
-    text.split_whitespace();    
-
+    text.split_whitespace();
 }

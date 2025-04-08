@@ -12,13 +12,13 @@ fn main() {
 
     /* match control flow */
     println!("{}", value_in_numbers(IpAddrKind::V4)); // prints 4
-   
+
     /* match control flow example with Option  */
     let optVal: Option<u8> = Some(5);
     match optVal {
         Some(i) => {
             println!("In some {0}", i);
-        },
+        }
         None => {
             println!("In none");
         }
@@ -50,8 +50,8 @@ enum IpAddr {
 }
 
 impl IpAddr {
-    fn print_it(&self){
-       // println!("{:?}", self);  derive debug not opted in
+    fn print_it(&self) {
+        // println!("{:?}", self);  derive debug not opted in
     }
 }
 

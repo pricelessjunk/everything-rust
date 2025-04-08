@@ -6,5 +6,5 @@ members = [
     "chapter05", 
     "chapter06", 
     "chapter07", 
-    "chapter08", "chapter09", "chapter10", "chapter11", "chapter12", "chapter13", "chapter15", "chapter16", "chapter17", "chapter18", "chapter19", "try_out",
+    "chapter08", "chapter09", "chapter10", "chapter11", "chapter12", "chapter13", "chapter15", "chapter16", "chapter17", "chapter18", "chapter19", "chapter20", "try_out",
 ]

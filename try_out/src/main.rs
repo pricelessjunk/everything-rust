@@ -6,5 +6,5 @@ fn main() {
 }
 
 struct Try {
-    something: bool
+    something: bool,
 }

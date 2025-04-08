@@ -4,7 +4,7 @@
  * cargo test -- --test-threads=1   // running not in parallel
  * cargo test -- --show-output      // Shows output
  * cargo test <test function name>/<prefix>
- * cargo test -- --ignored          // Running ignored tests 
+ * cargo test -- --ignored          // Running ignored tests
  *
  * Typical test structure
  * ├── Cargo.lock
@@ -16,7 +16,7 @@
  *    │   └── mod.rs
  *    └── integration_test.rs
  *
- * Putting common code as module doesn't print output of that file. 
+ * Putting common code as module doesn't print output of that file.
  * It will not be considered as an output file.
  */
 
@@ -37,13 +37,13 @@ mod tests {
     #[test]
     fn it_works() {
         let result = add(2, 2);
-        assert_eq!(result, 4, "result is suppose to be 4");  // asserting equality
-        assert!(result == 4);   // asserting bool
-        assert_ne!(result, 5)   // asserting ne
+        assert_eq!(result, 4, "result is suppose to be 4"); // asserting equality
+        assert!(result == 4); // asserting bool
+        assert_ne!(result, 5) // asserting ne
     }
 
     #[test]
-    #[should_panic(expected="panicking")]   // Expected substing
+    #[should_panic(expected = "panicking")] // Expected substing
     fn should_panic() {
         function_that_panics();
     }
@@ -60,5 +60,5 @@ mod tests {
 
     #[test]
     #[ignore]
-    fn ignoring_this_test(){}
+    fn ignoring_this_test() {}
 }

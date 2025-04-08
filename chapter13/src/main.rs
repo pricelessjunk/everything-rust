@@ -30,7 +30,7 @@ fn main() {
         let mut borrow_mutably = || mutable_list.push(7);
         borrow_mutably();
         println!("After borrow immutably {mutable_list:?}"); // this works since the closure is not used again
-                                                             // borrow_mutably();   // Calling this line would break previous line since cannot mutable borrow after println
+        // borrow_mutably();   // Calling this line would break previous line since cannot mutable borrow after println
     }
 
     // taking ownership with move
@@ -54,9 +54,9 @@ fn closure_default() -> u8 {
 }
 
 /// Add one
-/// 
+///
 /// returns the sum
-/// 
+///
 /// Panics here
 fn add_one_v1(x: u32) -> u32 {
     x + 1
@@ -77,4 +77,3 @@ fn iterator_map() {
     // Iterators are lazy and don't do anything unless consumed.
     let _: Vec<_> = v1_iter.map(|val| println!("Got {val}")).collect();
 }
-
