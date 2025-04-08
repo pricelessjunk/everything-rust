@@ -89,6 +89,12 @@ cargo yank --vers 1.0.1 --undo
 ```
 - A yank does not delete anything.
 
+## format
+
+```sh
+cargo fmt
+```
+
 # Cargo workspaces (sub projects)
 
 ```toml
