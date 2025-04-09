@@ -10,10 +10,7 @@ pub trait Future {
 }
 
 #[test]
-fn future_trait() {
-
-}
-
+fn future_trait() {}
 
 /* Pin and Unpin trait */
 // https://doc.rust-lang.org/book/ch17-05-traits-for-async.html#the-pin-and-unpin-traits

@@ -9,7 +9,6 @@ pub trait Iterator {
     fn next(&mut self) -> Option<Self::Item>;
 }
 
-
 // Operator overloading
 #[derive(Debug, Copy, Clone, PartialEq)]
 struct Point {
@@ -32,7 +31,7 @@ impl std::ops::Add for Point {
 // Traits that take a parameter, so has a defined type
 
 /*
-Here Add is defined as 
+Here Add is defined as
 
 trait Add<Rhs=Self> {
     type Output;
@@ -93,11 +92,11 @@ impl Child {
 #[test]
 fn multi_traits_impl() {
     let c = Child;
-    c.func_name();  // Child's own method
+    c.func_name(); // Child's own method
     Trait1::func_name(&c);
     Trait2::func_name(&c);
-    Child::no_self_func();  // prints the child
-    <Child as Trait2>::no_self_func();  // prints from the trait
+    Child::no_self_func(); // prints the child
+    <Child as Trait2>::no_self_func(); // prints from the trait
 }
 
 // Supertrait

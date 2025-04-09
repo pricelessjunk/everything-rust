@@ -4,11 +4,10 @@ use std::os::raw::c_int;
 
 fn main() {
     unsafe {
-        println!("Hello, world! {}", *(&raw const HELLO_WORLD));  // raw pointer
+        println!("Hello, world! {}", *(&raw const HELLO_WORLD)); // raw pointer
         hello_to_universe();
         println!("Hello, world! {}", *(&raw const HELLO_WORLD));
     }
-    
 }
 
 #[test]
@@ -60,7 +59,7 @@ unsafe extern "C" {
 }
 
 #[test]
-fn extern_test(){
+fn extern_test() {
     unsafe {
         assert_eq!(3, abs(-3));
     }
@@ -81,11 +80,8 @@ static mut HELLO_WORLD: &str = "Hello World";
 /// behavior, so you *must* guarantee you only call it from a single thread at
 /// a time.
 fn hello_to_universe() {
-    unsafe {
-        HELLO_WORLD = "hello universe!"
-    }
+    unsafe { HELLO_WORLD = "hello universe!" }
 }
-
 
 mod advanced_traits;
 mod macros;
