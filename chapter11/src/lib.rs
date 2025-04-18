@@ -24,6 +24,10 @@ pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
 
+pub fn add_two(a: usize) -> usize {
+    add(a, 2)
+}
+
 pub fn function_that_panics() {
     panic!("I am panicking");
 }
