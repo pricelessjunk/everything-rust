@@ -2,5 +2,6 @@
 name = "chapter20"
 version = "0.1.0"
 edition = "2024"
+description = "Advanced traits, macros"
 
 [dependencies]
