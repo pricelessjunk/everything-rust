@@ -55,8 +55,12 @@ struct Rectangle {
 }
 
 impl Rectangle {
+    // Associated consts
+    const MSG: &str = "Calculating area";
+
     // This is an assiciated function with the type Rectangle.
     fn area(&self) -> i32 {
+        println!("{}", Rectangle::MSG);
         return self.width * self.height;
     }
 

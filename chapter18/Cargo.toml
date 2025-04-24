@@ -2,5 +2,6 @@
 name = "chapter18"
 version = "0.1.0"
 edition = "2024"
+description = "Traits, Upper bound on generic types with traits"
 
 [dependencies]

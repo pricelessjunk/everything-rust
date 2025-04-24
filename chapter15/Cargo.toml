@@ -2,5 +2,6 @@
 name = "chapter15"
 version = "0.1.0"
 edition = "2024"
+description = "Smart pointers, Box, Rc, RefCell, Weak pointers"
 
 [dependencies]

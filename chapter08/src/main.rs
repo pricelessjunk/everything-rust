@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, fmt};
 
 /*
  * To note, the get function borrows the value. Which means, once the value is borrowed, a
@@ -37,6 +37,11 @@ fn main() {
         println!("{i}");
         *i += 2 // To change the value of a mutable reference, * is needed
     }
+
+    // removing
+    let mut v6 = vec!["first", "second"];
+    v6.remove(0);
+    println!("{:?}",v6);
 
     // Using enum to store different values
     // https://doc.rust-lang.org/book/ch08-01-vectors.html#using-an-enum-to-store-multiple-types

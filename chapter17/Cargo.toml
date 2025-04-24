@@ -2,6 +2,7 @@
 name = "chapter17"
 version = "0.1.0"
 edition = "2024"
+description = "Async traits, Futures, Pin & unpin"
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }

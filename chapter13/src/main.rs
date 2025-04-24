@@ -75,5 +75,6 @@ fn iterator_map() {
     let v1 = vec![1, 2, 3];
     let v1_iter = v1.iter();
     // Iterators are lazy and don't do anything unless consumed.
-    let _: Vec<_> = v1_iter.map(|val| println!("Got {val}")).collect();
+    let _: Vec<_> = v1_iter.clone().map(|val| println!("Got {val}")).collect();
+    let plus_2: Vec<i32> = v1_iter.map(|i| i+2).collect();
 }
