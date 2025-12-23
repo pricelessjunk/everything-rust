@@ -13,8 +13,6 @@ fn main() {
     add_one_v2(1);
     let add_one_v3 = |x| x + 1;
     add_one_v3(1);
-    let add_one_v4 = |x| x + 1;
-    add_one_v4(1);
 
     // closure borrowing immutably
     {
@@ -37,12 +35,32 @@ fn main() {
     {
         let immutable_list = vec![1, 2, 3];
         // the move keyword is necessary since the other thread may outlive the current thread and needs ownership of immutable_list
-        thread::spawn(move || println!("From thread: {immutable_list:?}"))
+        thread
+            ::spawn(move || println!("From thread: {immutable_list:?}"))
             .join()
             .unwrap();
     }
 
-    // Skipped fn, fnOnce, fnMut
+    // Fn - Can be called multiple times since doesn't mutate or consume.
+    let greeting = "Hello";
+    let say_hello = || println!("{}", greeting); // Immutable borrow
+    call_fn(say_hello);
+
+    // FnMut - Use this when the closure mutates something it captures.
+    let mut count = 0;
+    let mut increment = || {
+        count += 1; // Mutates outer variable
+        println!("Count: {}", count);
+    };
+    call_fn_mut(&mut increment);
+
+    //FnOnce - Consumes captured variables (takes ownership)
+    let name = String::from("Kaustuv");
+    let say_name = || {
+        println!("Name: {}", name);
+        drop(name); // Moves ownership
+    };
+    call_fn_once(say_name);
 }
 
 fn run_closure(input: Option<u8>) -> u8 {
@@ -62,6 +80,21 @@ fn add_one_v1(x: u32) -> u32 {
     x + 1
 }
 
+fn call_fn<F: Fn()>(f: F) {
+    f();
+    f(); // Can call again
+}
+
+fn call_fn_mut<F: FnMut()>(mut f: F) {
+    f();
+    f();
+}
+
+fn call_fn_once<F>(f: F) where F: FnOnce() {
+    f();
+    // f(); // ❌ Can't call again
+}
+
 #[test]
 fn iterator_sum() {
     let v1 = vec![1, 2, 3];
@@ -75,6 +108,9 @@ fn iterator_map() {
     let v1 = vec![1, 2, 3];
     let v1_iter = v1.iter();
     // Iterators are lazy and don't do anything unless consumed.
-    let _: Vec<_> = v1_iter.clone().map(|val| println!("Got {val}")).collect();
-    let plus_2: Vec<i32> = v1_iter.map(|i| i+2).collect();
+    let _: Vec<_> = v1_iter
+        .clone()
+        .map(|val| println!("Got {val}"))
+        .collect();
+    let plus_2: Vec<i32> = v1_iter.map(|i| i + 2).collect();
 }
